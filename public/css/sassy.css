@@ -1,0 +1,105 @@
+header#main-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 100vh;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  background-color: #B51C05;
+  padding: 40px;
+  color: #000000; }
+
+nav#main-nav {
+  background-color: #B51C05;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 100vh;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  background-color: #FFFFFF;
+  height: 10vh; }
+  nav#main-nav ul {
+    list-style: none;
+    padding-top: 10px; }
+  nav#main-nav li {
+    display: inline; }
+  nav#main-nav a {
+    text-decoration: none;
+    font-size: 25px;
+    color: #000000;
+    padding-right: 20px; }
+    nav#main-nav a:hover {
+      color: #CCCCCC; }
+
+.section, #section-A, #section-B {
+  padding: 40px;
+  text-align: center; }
+  .section h1, #section-A h1, #section-B h1 {
+    margin-bottom: 30px; }
+
+#section-A {
+  background: #555555;
+  color: #FFFFFF;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 100vh;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  background-color: #000000; }
+
+#section-B {
+  background: #4B1515;
+  color: #FFFFFF;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 100vh;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  background-color: #0e47a3; }
+
+.button, .button-A, .button-B {
+  padding: 10px 15px;
+  text-decoration: none; }
+
+.button-A {
+  background: #831404;
+  color: #FFFFFF; }
+
+.button-B {
+  background: #1a1a1a;
+  color: #FFFFFF; }

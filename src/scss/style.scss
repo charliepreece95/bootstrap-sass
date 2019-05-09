@@ -1,0 +1,101 @@
+/*The underscore is important it signifys 
+it is a partial, meaning when compiling sass
+it shouldn't create a new css file but simply 
+include in the main file.
+*/
+@import "variables";
+@import "functions";
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: $body-bg;
+    font-family: $main-font;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: $dark-color;
+}
+
+.container {
+    max-width: $container;
+    margin: auto;
+    padding: 0, 20px;
+}
+
+header#main-header {
+    padding: 1em;
+    background-color: $primary-color;
+    color: set-text-color($primary-color);
+
+    h1 {
+        font-size: 40px;
+    }
+}
+
+nav#main-nav {
+    background-color: $secondary-color;
+    height: 40px;
+
+    ul {       
+         list-style: none;
+         padding-top: 10px; 
+    }
+
+    li {
+        display: inline;
+
+    }
+
+    a{
+        color: #FFFFFF;
+        padding-right: 20px;
+        &:hover{
+            color: #CCCCCC;
+        }
+    }
+}
+
+.section {
+    padding: $section-padding;
+
+    h1 {
+        margin-bottom: 30px;
+    }
+}
+
+#section-A {
+    @extend .section;
+    background: $light-color;
+    color:set-text-color($light-color);
+
+}
+
+#section-B{
+    @extend .section;
+    background: $dark-color;
+    color:set-text-color($dark-color);
+
+}
+
+.button {
+    padding: 10px 15px;
+
+}
+
+.button-A {
+    @extend .button;
+    background: darken($primary-color, 10%);
+    color:set-text-color($primary-color);
+}
+
+.button-B {
+    @extend .button;
+    background: lighten($secondary-color, 10%);
+    color:set-text-color($secondary-color);
+}

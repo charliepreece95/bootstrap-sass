@@ -1,0 +1,36 @@
+/*
+Ruby to compile Bootstrap (Now using gulp which sorts this)
+sass src/scss/bootstrap.scss public/css/bootstrap.css
+*/
+@import "0-plugins/_plugins-dir.scss";
+@import "1-base/_base-dir.scss";
+@import "2-layouts/_layouts-dir.scss";
+@import "3-modules/_modules-dir.scss";
+@import "4-state/_state-dir.scss";
+@import "5-theme/_theme-dir.scss";
+//importing global partials
+@import "variables";
+
+$navbar-dark-color: $default-text-color;
+
+#btn-default-color {
+  background-color: $btn-default-color;
+  color: white;
+}
+
+#btn-default-color:hover {
+  background-color: $btn-hover-color;
+}
+
+#bg-nav {
+  background-color: $bg-color;
+}
+
+.navbar-nav {
+  .nav-link {
+    font-size: 1.25em;
+  }
+}
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
+//@import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";

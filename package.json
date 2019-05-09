@@ -1,0 +1,30 @@
+{
+  "name": "sass-tutorial",
+  "version": "1.0.0",
+  "description": "using Gulp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "gulp",
+    "serve": "nodemon gulpfile.js"
+  },
+  "author": "Charlie Preece",
+  "license": "MIT",
+  "devDependencies": {
+    "browser-sync": "^2.26.3",
+    "gulp": "^4.0.0",
+    "gulp-autoprefixer": "^6.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^5.0.3",
+    "gulp-sass": "^4.0.2",
+    "gulp-uglify": "^3.0.2"
+  },
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.4.0",
+    "nodemon": "^1.19.0",
+    "popper.js": "^1.15.0",
+    "sass": "^1.19.0"
+  }
+}

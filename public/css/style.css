@@ -1,0 +1,67 @@
+/*The underscore is important it signifys 
+it is a partial, meaning when compiling sass
+it shouldn't create a new css file but simply 
+include in the main file.
+*/
+* {
+  margin: 0;
+  padding: 0; }
+
+body {
+  background-color: white;
+  font-family: "Arial";
+  text-align: center; }
+
+a {
+  text-decoration: none;
+  color: #4B1515; }
+
+.container {
+  max-width: 960px;
+  margin: auto;
+  padding: 0, 20px; }
+
+header#main-header {
+  padding: 1em;
+  background-color: #B51C05;
+  color: #FFFFFF; }
+  header#main-header h1 {
+    font-size: 40px; }
+
+nav#main-nav {
+  background-color: #000000;
+  height: 40px; }
+  nav#main-nav ul {
+    list-style: none;
+    padding-top: 10px; }
+  nav#main-nav li {
+    display: inline; }
+  nav#main-nav a {
+    color: #FFFFFF;
+    padding-right: 20px; }
+    nav#main-nav a:hover {
+      color: #CCCCCC; }
+
+.section, #section-A, #section-B {
+  padding: 40px; }
+  .section h1, #section-A h1, #section-B h1 {
+    margin-bottom: 30px; }
+
+#section-A {
+  background: #555555;
+  color: #FFFFFF; }
+
+#section-B {
+  background: #4B1515;
+  color: #FFFFFF; }
+
+.button, .button-A, .button-B {
+  padding: 10px 15px; }
+
+.button-A {
+  background: #831404;
+  color: #FFFFFF; }
+
+.button-B {
+  background: #1a1a1a;
+  color: #FFFFFF; }

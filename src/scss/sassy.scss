@@ -1,0 +1,73 @@
+@import "variables";
+@import "functions";
+@import "mixins";
+
+header#main-header {
+    @include flexCentre(column, $primary-color);
+    padding: $section-padding;
+    color: $secondary-color;
+}
+
+nav#main-nav {
+    background-color: $primary-color;
+    @include flexNav();
+
+    ul {       
+         list-style: none;
+         padding-top: 10px; 
+    }
+
+    li {
+        display: inline;
+    }
+
+    a{
+        text-decoration: $text-decoration;
+        font-size: 25px;
+        color: #000000;
+        padding-right: 20px;
+        &:hover{
+            color: #CCCCCC;
+        }
+    }
+}
+
+.section {
+    padding: $section-padding;
+    text-align: center;
+
+    h1 {
+        margin-bottom: 30px;
+    }
+}
+
+#section-A {
+    @extend .section;
+    background: $light-color;
+    color:set-text-color($light-color);
+    @include flexCentre(column, #000000);
+}
+
+#section-B{
+    @extend .section;
+    background: $dark-color;
+    color:set-text-color($dark-color);
+    @include flexCentre(column, #0e47a3);
+}
+
+.button {
+    padding: 10px 15px;
+    text-decoration: none;
+}
+
+.button-A {
+    @extend .button;
+    background: darken($primary-color, 10%);
+    color:set-text-color($primary-color);
+}
+
+.button-B {
+    @extend .button;
+    background: lighten($secondary-color, 10%);
+    color:set-text-color($secondary-color);
+}

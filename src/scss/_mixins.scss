@@ -1,0 +1,14 @@
+//mixins
+@mixin flexCentre($direction, $color) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: $direction;
+    background-color: $color;
+}
+
+@mixin flexNav() {
+    @include flexCentre(row, #FFFFFF);
+    height: 10vh;
+}

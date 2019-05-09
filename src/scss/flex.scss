@@ -1,0 +1,35 @@
+@media(min-width: 468px) {
+    main#container{
+        display: flex;
+        flex-direction: row;
+     }
+     
+     main#container-2 {
+         @extend #container;
+         justify-content: space-evenly;
+     }
+}
+
+section {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.box-1 {
+    flex: 1;
+    order: 1;
+}
+
+.box-2 {
+    flex: 2;
+    order: 2;
+}
+
+.box-3 {
+    flex: 1;
+    order: 3;
+}
+
+.container-box2 {
+    flex-basis: 25%; //same as width
+}
