@@ -46,17 +46,16 @@ gulp.task('imagemin', (res) => {
 gulp.task('minify', (res) => {
     gulp.src('src/js/*')
     .pipe(uglify())
-    .pipe(gulp.dest('public/js'));
+    .pipe(gulp.dest('public/js')); 
     return res();
 });
 
 //JS vendor files
 gulp.task('js_vendor', (res) => {
-    gulp.src(['node_modules/jquery/dist/jquery.min.js', 'node_modules/bootstrap/dist/js/bootstrap.min.js'])
+    gulp.src(['node_modules/jquery/dist/jquery.min.js', 'node_modules/bootstrap/dist/js/bootstrap.min.js', 'node_modules/popper.js/dist/umd/popper.min.js'])
     .pipe(gulp.dest('public/js'));
     return res();
 });
-
 
 //complile sass
 gulp.task('sass', (res) => {
@@ -76,8 +75,7 @@ gulp.task('concat', (res) => {
     gulp.src('src/js/*')
     .pipe(concat('main.js'))
     .pipe(uglify())
-    .pipe(gulp.dest('public/js'))
-    .pipe(browserSync.stream());
+    .pipe(gulp.dest('public/js'));
     return res();
 });
 
