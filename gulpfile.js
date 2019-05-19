@@ -2,9 +2,10 @@ const gulp = require('gulp');
 const browserSync  = require('browser-sync').create();
 const autoprefixer = require('gulp-autoprefixer');
 const imagemin = require('gulp-imagemin');
-const uglify = require('gulp-uglify');
+const uglifyJS = require('gulp-uglify');
 const sass = require('gulp-sass');
 const concat = require('gulp-concat');
+const minifyCSS = require('gulp-clean-css');
 
 /*
     --TOP LEVEL FUNCTIONS--
@@ -36,28 +37,38 @@ gulp.task('copyindex', (res) => {
 
 //optimize/compress images
 gulp.task('imagemin', (res) => {
-    gulp.src('src/images/*')
+    gulp.src('src/media/images/*')
         .pipe(imagemin())
-        .pipe(gulp.dest('public/images'));
+        .pipe(gulp.dest('public/media/images'));
         return res();
 });
 
 //minify/uglify JS
 gulp.task('minify', (res) => {
     gulp.src('src/js/*')
-    .pipe(uglify())
+    .pipe(uglifyJS())
     .pipe(gulp.dest('public/js')); 
     return res();
 });
 
-//JS vendor files
-gulp.task('js_vendor', (res) => {
-    gulp.src(['node_modules/jquery/dist/jquery.min.js', 'node_modules/bootstrap/dist/js/bootstrap.min.js', 'node_modules/popper.js/dist/umd/popper.min.js'])
+//concat and uglify JS script files
+gulp.task('concat', (res) => {
+    gulp.src('src/js/*')
+    .pipe(concat('main.js'))
+    .pipe(uglifyJS())
     .pipe(gulp.dest('public/js'));
     return res();
 });
 
-//complile sass
+//JS vendor files
+gulp.task('vendor', (res) => {
+    gulp.src(['node_modules/jquery/dist/jquery.min.js', 'node_modules/bootstrap/dist/js/bootstrap.min.js', 'node_modules/popper.js/dist/umd/popper.min.js'])
+    .pipe(uglifyJS())
+    .pipe(gulp.dest('public/js/vendor'));
+    return res();
+});
+
+//complile sass and minify CSS
 gulp.task('sass', (res) => {
     gulp.src('src/scss/*.scss')
     .pipe(sass().on('error', sass.logError))
@@ -65,17 +76,28 @@ gulp.task('sass', (res) => {
         browsers: ['last 2 versions'],
         cascade: false
     }))
+    .pipe(minifyCSS({debug: true, compatibility: 'ie8'}, (details) => {
+        console.log(`${details.name}: ${details.stats.originalSize}`);
+        console.log(`${details.name}: ${details.stats.minifiedSize}`);
+      }))
     .pipe(gulp.dest('public/css'))
     .pipe(browserSync.stream());
     return res();
 });
 
-//concat JS script files
-gulp.task('concat', (res) => {
-    gulp.src('src/js/*')
-    .pipe(concat('main.js'))
-    .pipe(uglify())
-    .pipe(gulp.dest('public/js'));
+//minify fonts 
+gulp.task('fonts', (res) => {
+    gulp.src("node_modules/font-awesome/scss/font-awesome.scss")
+    .pipe(sass().on('error', sass.logError))
+    .pipe(autoprefixer({
+        browsers: ['last 2 versions'],
+        cascade: false
+    }))
+    .pipe(minifyCSS({debug: true, compatibility: 'ie8'}, (details) => {
+        console.log(`${details.name}: ${details.stats.originalSize}`);
+        console.log(`${details.name}: ${details.stats.minifiedSize}`);
+      }))
+    .pipe(gulp.dest('public/css/fonts'));
     return res();
 });
 
@@ -104,5 +126,8 @@ gulp.task('serve', (res) => {
 //Watch and serve
 gulp.task('watchserve', gulp.series(['message', 'watch', 'serve']));
 
+//Compress and minify
+gulp.task('minifycompress', gulp.series(['message', 'copyindex', 'copyhtml', 'sass', 'imagemin', 'concat', 'vendor', 'fonts']));
+
 //Run all tasks
-gulp.task('default', gulp.series(['message', 'copyindex', 'copyhtml', 'imagemin', 'sass', 'concat', 'watch', 'serve']));
+gulp.task('default', gulp.series(['message', 'copyindex', 'copyhtml', 'sass', 'imagemin', 'concat', 'watch', 'serve']));
