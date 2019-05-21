@@ -149,7 +149,7 @@ gulp.task('serve', (res) => {
 gulp.task('watchserve', gulp.series(['message', 'watch', 'serve']));
 
 //Compress and minify
-gulp.task('minifycompress', gulp.series(['message', 'copyindex', 'copyhtml', 'sass', 'imagemin', 'concat', 'vendor', 'fonts']));
+gulp.task('minifycompress', gulp.series(['message', 'copyindex', 'copyhtml', 'sass', 'imagemin', 'concat', 'vendor', 'fonts', 'copyfonts', 'fontmin']));
 
 //Run all tasks
 gulp.task('default', gulp.series(['message', 'copyindex', 'copyhtml', 'sass', 'concat', 'imagemin', 'watch', 'serve']));
